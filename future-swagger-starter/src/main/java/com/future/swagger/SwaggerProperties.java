@@ -1,4 +1,4 @@
-package com.future;
+package com.future.swagger;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
