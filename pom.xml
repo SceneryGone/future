@@ -11,7 +11,8 @@
 
     <modules>
         <module>future-swagger-starter</module>
-        <module>futute-common-util</module>
+        <module>future-framework-starter</module>
+        <module>future-common-util</module>
     </modules>
 
     <properties>
