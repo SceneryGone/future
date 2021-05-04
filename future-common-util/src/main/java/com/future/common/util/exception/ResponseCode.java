@@ -6,7 +6,7 @@ package com.future.common.util.exception;
  * @author future
  * @date 2021/05/04 19:04
  */
-public interface BizCode {
+public interface ResponseCode {
 
     /**
      * 成功

@@ -1,7 +1,5 @@
 package com.future.common.util.exception;
 
-import lombok.Data;
-
 /**
  * 业务出错
  *
@@ -23,7 +21,7 @@ public class BizException extends BaseException {
     }
 
     protected BizException(String message) {
-        this(BizCode.FAIL, message, null);
+        this(ResponseCode.FAIL, message, null);
     }
 
     public static BizException of(Integer code, String message) {
