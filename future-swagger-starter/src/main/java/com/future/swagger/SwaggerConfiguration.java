@@ -6,6 +6,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -15,6 +17,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import javax.annotation.Resource;
 import java.text.MessageFormat;
 
 /**
@@ -26,16 +29,16 @@ import java.text.MessageFormat;
 @Configuration
 @EnableSwagger2
 @EnableConfigurationProperties(SwaggerProperties.class)
-public class SwaggerConfiguration {
+public class SwaggerConfiguration implements WebMvcConfigurer {
 
-    @Autowired
+    @Resource
     private SwaggerProperties swaggerProperties;
 
     @Value("${spring.application.name}")
     private String applicationName;
 
     @Bean
-    public Docket getUserDocket() {
+    public Docket buildDocker() {
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title(MessageFormat.format(swaggerProperties.getTitle(), applicationName))
                 .description(swaggerProperties.getDescription())
@@ -44,6 +47,7 @@ public class SwaggerConfiguration {
                 .build();
 
         return new Docket(DocumentationType.SWAGGER_2)
+                .enable(swaggerProperties.getStatus())
                 .apiInfo(apiInfo)
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
@@ -52,7 +56,12 @@ public class SwaggerConfiguration {
     }
 
     public Contact getContact() {
-        return new Contact("future", "http://yaoguang.info", "182xxxx2301@163.com");
+        return new Contact("future", "http://yaoguang.info", "378899470@qq.com");
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:META-INF/resources/webjars/");
+    }
 }

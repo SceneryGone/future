@@ -19,4 +19,9 @@ public class SwaggerProperties {
 
     private String version = "1.0.0";
 
+    /**
+     * 正式环境需要是false
+     */
+    private Boolean status = true;
+
 }
