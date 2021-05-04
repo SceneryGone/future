@@ -25,6 +25,8 @@
         <springfox-swagger2-annotations.version>1.5.21</springfox-swagger2-annotations.version>
 
         <lombok.version>1.18.4</lombok.version>
+        <hutool.version>5.6.3</hutool.version>
+        <commons-lang3.version>3.11</commons-lang3.version>
 
     </properties>
 
@@ -62,13 +64,27 @@
                 <version>${springfox-swagger2-annotations.version}</version>
             </dependency>
 
-
             <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+
+            <!-- hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
