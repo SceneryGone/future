@@ -10,7 +10,6 @@ import com.google.gson.GsonBuilder;
  * @author future
  * @date 2021/05/04 23:36
  */
-@Deprecated
 public class GsonUtil {
 
     private static final Gson GSON = new GsonBuilder().create();

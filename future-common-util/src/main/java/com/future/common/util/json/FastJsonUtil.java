@@ -9,7 +9,6 @@ import com.alibaba.fastjson.JSON;
  * @author future
  * @date 2021/05/04 23:41
  */
-@Deprecated
 public class FastJsonUtil {
 
     public static String beanToJson(Object obj) {
@@ -19,6 +18,5 @@ public class FastJsonUtil {
     public static <T> T jsonToBean(String jsonStr, Class<T> objClass) {
         return JSON.parseObject(jsonStr, objClass);
     }
-
 
 }
