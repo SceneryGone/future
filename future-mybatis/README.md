@@ -49,5 +49,4 @@ public interface UserMapper extends CommonMapper<User> {
 ```
 最后，注入调用即可，可以实现CommonMapper继承接口的方法，不用在mapper和xml中写那么多实现。
 
-
 > 遇到其他情况可以看些这篇博客：https://www.cnblogs.com/jpfss/p/9117671.html

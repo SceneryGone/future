@@ -9,7 +9,7 @@
 ```
 因为SwaggerConfiguration需要注入applicationName,所以依赖的模块需要在properties中配置
 ```properties
-spring.application.name=applicationName
+spring.application.name=application-name
 ```
 ### 注意
 只扫描RestController注解的类，所以需要额外注意。
