@@ -13,6 +13,8 @@
         <module>future-swagger-starter</module>
         <module>future-framework-starter</module>
         <module>future-common-util</module>
+        <module>future-mybatis</module>
+        <module>future-mybatis-generator-plugin</module>
     </modules>
 
     <properties>
@@ -31,6 +33,10 @@
         <fastjson.version>1.2.75</fastjson.version>
         <jackson.version>2.12.2</jackson.version>
 
+        <mysql-connector.version>8.0.20</mysql-connector.version>
+        <mybatis.version>1.3.1</mybatis.version>
+        <tk.mybatis.version>1.2.4</tk.mybatis.version>
+        <pagehelper.version>1.2.3</pagehelper.version>
     </properties>
 
     <dependencyManagement>
@@ -106,7 +112,44 @@
                 <version>${jackson.version}</version>
             </dependency>
 
+            <!-- mybatis https://github.com/abel533/MyBatis-Spring-Boot -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!--mapper-->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk.mybatis.version}</version>
+            </dependency>
+            <!--pageHelper-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
