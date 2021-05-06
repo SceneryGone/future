@@ -16,6 +16,7 @@
 在application.properties添加配置
 ```properties
 # mysql
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://route.wanpeng123.cn:13306/future?useUnicode=true&characterEncoding=UTF-8
 spring.datasource.username=root
