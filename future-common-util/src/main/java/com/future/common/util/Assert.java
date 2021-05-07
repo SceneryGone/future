@@ -1,5 +1,6 @@
 package com.future.common.util;
 
+import java.util.Collection;
 import java.util.function.Predicate;
 
 /**
@@ -16,22 +17,22 @@ public class Assert {
         }
     }
 
-    public static <T extends RuntimeException> void isTrue(boolean expression, FailureAction action) {
-        if (!expression) {
-            action.run();
-        }
-    }
-
     public static <T extends RuntimeException, R> void isTrue(Predicate<R> predicate, R r, T e) {
         if (!predicate.test(r)) {
             throw e;
         }
     }
 
-    @FunctionalInterface
-    public interface FailureAction {
-        void run();
+    public static <T extends RuntimeException> void isNotNull(Object object, T e) {
+        if (object == null) {
+            throw e;
+        }
     }
 
+    public static <T extends RuntimeException> void isNotEmpty(Collection<?> collection, T e) {
+        if (collection == null || collection.isEmpty()) {
+            throw e;
+        }
+    }
 
 }
