@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
-import java.util.function.Supplier;
+import java.util.function.BooleanSupplier;
 
 /**
  * @author future
@@ -16,7 +16,7 @@ public class TransactionUtil {
     /**
      * 事务提交之后异步执行-带有重试机制
      */
-    public static void processAfterCommitAsynchronously(Supplier<Boolean> supplier) {
+    public static void processAfterCommitAsynchronously(BooleanSupplier supplier) {
         try {
             TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
                 @Override
@@ -32,12 +32,12 @@ public class TransactionUtil {
     /**
      * 事务提交之后执行-不重试
      */
-    private static Boolean process(Supplier<Void> supplier) {
+    private static Boolean process(BooleanSupplier supplier) {
         try {
             TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
                 @Override
                 public void afterCommit() {
-                    supplier.get();
+                    supplier.getAsBoolean();
                 }
             });
             return true;

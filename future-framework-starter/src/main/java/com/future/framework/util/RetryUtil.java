@@ -8,7 +8,7 @@ import org.springframework.retry.support.RetryTemplate;
 
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
+import java.util.function.BooleanSupplier;
 
 /**
  * 需要在spring环境下使用
@@ -18,6 +18,10 @@ import java.util.function.Supplier;
  */
 @Slf4j
 public class RetryUtil {
+
+    private RetryUtil() {
+
+    }
 
     private static final RetryTemplate TEMPLATE = new RetryTemplate();
 
@@ -35,10 +39,10 @@ public class RetryUtil {
     /**
      * 异步重试
      */
-    public static void retryAsynchronously(Supplier<Boolean> supplier) {
+    public static void retryAsynchronously(BooleanSupplier supplier) {
         CompletableFuture.runAsync(() -> {
             try {
-                TEMPLATE.execute(context -> supplier.get());
+                TEMPLATE.execute(context -> supplier.getAsBoolean());
             } catch (Exception e) {
                 log.error("async do failed: {}", e.getMessage(), e);
             }
