@@ -15,6 +15,7 @@
         <module>future-common-util</module>
         <module>future-mybatis</module>
         <module>future-mybatis-generator-plugin</module>
+        <module>future-service-starter</module>
     </modules>
 
     <properties>

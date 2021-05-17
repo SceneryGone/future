@@ -56,7 +56,8 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .globalOperationParameters(operationParameters());
     }
 
     public Contact getContact() {
