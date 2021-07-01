@@ -12,6 +12,4 @@ import tk.mybatis.mapper.common.ids.SelectByIdsMapper;
  */
 public interface CommonMapper<T> extends BaseMapper<T>, InsertListMapper<T>, SelectByIdsMapper<T> {
 
-
-
 }
