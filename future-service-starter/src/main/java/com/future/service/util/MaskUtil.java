@@ -1,4 +1,4 @@
-package com.future.common.util.encryption;
+package com.future.service.util;
 
 import org.apache.commons.lang3.StringUtils;
 

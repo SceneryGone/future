@@ -1,4 +1,4 @@
-package com.future.common.util.annotation;
+package com.future.service.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

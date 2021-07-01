@@ -1,4 +1,4 @@
-package com.future.common.util;
+package com.future.service.util;
 
 import java.util.Collection;
 import java.util.function.Predicate;
