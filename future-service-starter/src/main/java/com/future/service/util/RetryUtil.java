@@ -42,7 +42,9 @@ public class RetryUtil {
     public static void retryAsynchronously(BooleanSupplier supplier) {
         CompletableFuture.runAsync(() -> {
             try {
-                TEMPLATE.execute(context -> supplier.getAsBoolean());
+                TEMPLATE.execute(
+                        context -> supplier.getAsBoolean()
+                );
             } catch (Exception e) {
                 log.error("async do failed: {}", e.getMessage(), e);
             }

@@ -43,6 +43,7 @@
         <tk.mybatis.version>1.2.4</tk.mybatis.version>
         <druid.version>1.1.18</druid.version>
         <pagehelper.version>1.2.3</pagehelper.version>
+        <fastjson.version>1.2.75</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -166,7 +167,12 @@
                 <artifactId>spring-tx</artifactId>
                 <version>${spring.spring-tx}</version>
             </dependency>
-
+            <!-- alibaba json  -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
